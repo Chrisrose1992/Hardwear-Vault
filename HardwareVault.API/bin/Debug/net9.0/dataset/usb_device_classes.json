@@ -1,0 +1,59 @@
+{
+  "deviceClasses": {
+    "00": "Use class information in the Interface Descriptors",
+    "01": "Audio",
+    "02": "Communications and CDC Control",
+    "03": "HID (Human Interface Device)",
+    "05": "Physical",
+    "06": "Image",
+    "07": "Printer",
+    "08": "Mass Storage",
+    "09": "Hub",
+    "0A": "CDC-Data",
+    "0B": "Smart Card",
+    "0D": "Content Security",
+    "0E": "Video",
+    "0F": "Personal Healthcare",
+    "10": "Audio/Video Devices",
+    "11": "Billboard Device Class",
+    "12": "USB Type-C Bridge Class",
+    "3C": "I3C Device Class",
+    "DC": "Diagnostic Device",
+    "E0": "Wireless Controller",
+    "EF": "Miscellaneous",
+    "FE": "Application Specific",
+    "FF": "Vendor Specific"
+  },
+  "commonDevices": {
+    "keyboard": {
+      "class": "03",
+      "description": "USB Keyboard",
+      "icon": "keyboard"
+    },
+    "mouse": {
+      "class": "03", 
+      "description": "USB Mouse",
+      "icon": "mouse"
+    },
+    "storage": {
+      "class": "08",
+      "description": "USB Storage Device",
+      "icon": "drive"
+    },
+    "webcam": {
+      "class": "0E",
+      "description": "USB Camera/Webcam",
+      "icon": "camera"
+    },
+    "printer": {
+      "class": "07",
+      "description": "USB Printer",
+      "icon": "printer"
+    },
+    "audio": {
+      "class": "01",
+      "description": "USB Audio Device",
+      "icon": "speaker"
+    }
+  }
+}

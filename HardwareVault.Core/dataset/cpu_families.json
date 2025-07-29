@@ -1,0 +1,13 @@
+{
+  "intel": {
+    "families": {
+      "6": {
+        "name": "Intel Core",
+        "models": {
+          "142": "8th Gen Core (Coffee Lake)",
+          "158": "9th Gen Core (Coffee Lake-R)"
+        }
+      }
+    }
+  }
+}

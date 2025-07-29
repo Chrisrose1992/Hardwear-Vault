@@ -1,0 +1,121 @@
+{
+  "manufacturer": "AMD",
+  "chipsets": [
+    {
+      "model": "X670E",
+      "release_year": 2022,
+      "pci_version": "PCIe 5.0 (CPU & Chipset)",
+      "slots": [
+        { "type": "x1", "speed_per_lane": "4 GB/s", "total_bandwidth": "4 GB/s" },
+        { "type": "x4", "speed_per_lane": "4 GB/s", "total_bandwidth": "16 GB/s" },
+        { "type": "x8", "speed_per_lane": "4 GB/s", "total_bandwidth": "32 GB/s" },
+        { "type": "x16", "speed_per_lane": "4 GB/s", "total_bandwidth": "64 GB/s" }
+      ]
+    },
+    {
+      "model": "X670",
+      "release_year": 2022,
+      "pci_version": "PCIe 5.0 (CPU) / PCIe 4.0 (Chipset)",
+      "slots": [
+        { "type": "x1", "speed_per_lane": "4 GB/s", "total_bandwidth": "4 GB/s" },
+        { "type": "x4", "speed_per_lane": "4 GB/s", "total_bandwidth": "16 GB/s" },
+        { "type": "x8", "speed_per_lane": "4 GB/s", "total_bandwidth": "32 GB/s" },
+        { "type": "x16", "speed_per_lane": "4 GB/s", "total_bandwidth": "64 GB/s" }
+      ]
+    },
+    {
+      "model": "B650E",
+      "release_year": 2022,
+      "pci_version": "PCIe 5.0 (CPU & Chipset)",
+      "slots": [
+        { "type": "x1", "speed_per_lane": "4 GB/s", "total_bandwidth": "4 GB/s" },
+        { "type": "x4", "speed_per_lane": "4 GB/s", "total_bandwidth": "16 GB/s" },
+        { "type": "x8", "speed_per_lane": "4 GB/s", "total_bandwidth": "32 GB/s" },
+        { "type": "x16", "speed_per_lane": "4 GB/s", "total_bandwidth": "64 GB/s" }
+      ]
+    },
+    {
+      "model": "B650",
+      "release_year": 2022,
+      "pci_version": "PCIe 5.0 (CPU) / PCIe 4.0 (Chipset)",
+      "slots": [
+        { "type": "x1", "speed_per_lane": "4 GB/s", "total_bandwidth": "4 GB/s" },
+        { "type": "x4", "speed_per_lane": "4 GB/s", "total_bandwidth": "16 GB/s" },
+        { "type": "x8", "speed_per_lane": "4 GB/s", "total_bandwidth": "32 GB/s" },
+        { "type": "x16", "speed_per_lane": "4 GB/s", "total_bandwidth": "64 GB/s" }
+      ]
+    },
+    {
+      "model": "X570",
+      "release_year": 2019,
+      "pci_version": "PCIe 4.0 (CPU & Chipset)",
+      "slots": [
+        { "type": "x1", "speed_per_lane": "2 GB/s", "total_bandwidth": "2 GB/s" },
+        { "type": "x4", "speed_per_lane": "2 GB/s", "total_bandwidth": "8 GB/s" },
+        { "type": "x8", "speed_per_lane": "2 GB/s", "total_bandwidth": "16 GB/s" },
+        { "type": "x16", "speed_per_lane": "2 GB/s", "total_bandwidth": "32 GB/s" }
+      ]
+    },
+    {
+      "model": "B550",
+      "release_year": 2020,
+      "pci_version": "PCIe 4.0 (CPU) / PCIe 3.0 (Chipset)",
+      "slots": [
+        { "type": "x1 (Chipset)", "speed_per_lane": "1 GB/s", "total_bandwidth": "1 GB/s" },
+        { "type": "x4 (Chipset)", "speed_per_lane": "1 GB/s", "total_bandwidth": "4 GB/s" },
+        { "type": "x8 (CPU)", "speed_per_lane": "2 GB/s", "total_bandwidth": "16 GB/s" },
+        { "type": "x16 (CPU)", "speed_per_lane": "2 GB/s", "total_bandwidth": "32 GB/s" }
+      ]
+    },
+    {
+      "model": "A520",
+      "release_year": 2020,
+      "pci_version": "PCIe 3.0 (CPU) / PCIe 3.0 (Chipset)",
+      "slots": [
+        { "type": "x1", "speed_per_lane": "1 GB/s", "total_bandwidth": "1 GB/s" },
+        { "type": "x4", "speed_per_lane": "1 GB/s", "total_bandwidth": "4 GB/s" },
+        { "type": "x16", "speed_per_lane": "1 GB/s", "total_bandwidth": "16 GB/s" }
+      ]
+    },
+    {
+      "model": "X470",
+      "release_year": 2018,
+      "pci_version": "PCIe 3.0",
+      "slots": [
+        { "type": "x1", "speed_per_lane": "1 GB/s", "total_bandwidth": "1 GB/s" },
+        { "type": "x4", "speed_per_lane": "1 GB/s", "total_bandwidth": "4 GB/s" },
+        { "type": "x16", "speed_per_lane": "1 GB/s", "total_bandwidth": "16 GB/s" }
+      ]
+    },
+    {
+      "model": "B450",
+      "release_year": 2018,
+      "pci_version": "PCIe 3.0",
+      "slots": [
+        { "type": "x1", "speed_per_lane": "1 GB/s", "total_bandwidth": "1 GB/s" },
+        { "type": "x4", "speed_per_lane": "1 GB/s", "total_bandwidth": "4 GB/s" },
+        { "type": "x16", "speed_per_lane": "1 GB/s", "total_bandwidth": "16 GB/s" }
+      ]
+    },
+    {
+      "model": "X370",
+      "release_year": 2017,
+      "pci_version": "PCIe 3.0",
+      "slots": [
+        { "type": "x1", "speed_per_lane": "1 GB/s", "total_bandwidth": "1 GB/s" },
+        { "type": "x4", "speed_per_lane": "1 GB/s", "total_bandwidth": "4 GB/s" },
+        { "type": "x16", "speed_per_lane": "1 GB/s", "total_bandwidth": "16 GB/s" }
+      ]
+    },
+    {
+      "model": "B350",
+      "release_year": 2017,
+      "pci_version": "PCIe 3.0",
+      "slots": [
+        { "type": "x1", "speed_per_lane": "1 GB/s", "total_bandwidth": "1 GB/s" },
+        { "type": "x4", "speed_per_lane": "1 GB/s", "total_bandwidth": "4 GB/s" },
+        { "type": "x16", "speed_per_lane": "1 GB/s", "total_bandwidth": "16 GB/s" }
+      ]
+    }
+  ]
+}

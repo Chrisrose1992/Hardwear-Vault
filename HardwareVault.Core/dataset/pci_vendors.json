@@ -1,0 +1,8 @@
+{
+  "vendors": {
+    "1002": "AMD/ATI",
+    "10DE": "NVIDIA Corporation", 
+    "8086": "Intel Corporation",
+    "1022": "Advanced Micro Devices"
+  }
+}

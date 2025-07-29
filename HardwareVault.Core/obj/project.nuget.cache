@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "QGZpvHf0J2I=",
+  "success": true,
+  "projectFilePath": "E:\\Dev Server\\dotnet\\HardwareVault\\HardwareVault.Core\\HardwareVault.Core.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\chris\\.nuget\\packages\\system.codedom\\9.0.7\\system.codedom.9.0.7.nupkg.sha512",
+    "C:\\Users\\chris\\.nuget\\packages\\system.directoryservices\\9.0.7\\system.directoryservices.9.0.7.nupkg.sha512",
+    "C:\\Users\\chris\\.nuget\\packages\\system.management\\9.0.7\\system.management.9.0.7.nupkg.sha512"
+  ],
+  "logs": []
+}
