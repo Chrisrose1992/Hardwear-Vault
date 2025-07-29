@@ -42,17 +42,24 @@ namespace HardwareVault.Core.Services
                         osInfo.SystemDirectory = os["SystemDirectory"]?.ToString();
                         osInfo.WindowsDirectory = os["WindowsDirectory"]?.ToString();
 
-                        // Enhanced OS info using your helpers
-                        var versionInfo = OsDataHelper.GetOsVersion(os);
-                        // Get basic OS information using helper methods
-                        var identityInfo = OsDataHelper.GetOsIdentity(os);
-                        var localeInfo = OsDataHelper.GetLocaleInfo(os);
-                        var protectionInfo = OsDataHelper.GetProtectionInfo(os);
-                        
-                        // Set properties that exist in OSInfo model
-                        osInfo.Locale = localeInfo["locale"]?.ToString();
-                        osInfo.TimeZone = localeInfo["timeZone"]?.ToString();
-                        osInfo.IsHypervisorPresent = Convert.ToBoolean(protectionInfo["isHypervisorPresent"]);
+                        // Enhanced OS info using your helpers with safe dictionary access
+                        try
+                        {
+                            var versionInfo = OsDataHelper.GetOsVersion(os);
+                            var identityInfo = OsDataHelper.GetOsIdentity(os);
+                            var localeInfo = OsDataHelper.GetLocaleInfo(os);
+                            var protectionInfo = OsDataHelper.GetProtectionInfo(os);
+                            
+                            // Set properties that exist in OSInfo model with safe dictionary access
+                            osInfo.Locale = localeInfo.TryGetValue("locale", out var locale) ? locale?.ToString() : null;
+                            osInfo.TimeZone = localeInfo.TryGetValue("timeZone", out var timeZone) ? timeZone?.ToString() : null;
+                            osInfo.IsHypervisorPresent = protectionInfo.TryGetValue("isHypervisorPresent", out var hypervisor) ? Convert.ToBoolean(hypervisor) : (bool?)null;
+                        }
+                        catch (Exception ex)
+                        {
+                            // If helper methods fail, continue with basic info
+                            Console.WriteLine($"Warning: Failed to get enhanced OS info: {ex.Message}");
+                        }
 
                         // Time info (enhanced)
                         ProcessInstallationDates(os, osInfo);
@@ -62,11 +69,37 @@ namespace HardwareVault.Core.Services
                     }
                 }
 
-                // Get timezone information (enhanced)
-                osInfo.TimeZone = TimeZoneInfo.Local.DisplayName;
+                // Get timezone information (enhanced) - fallback if not set above
+                if (string.IsNullOrWhiteSpace(osInfo.TimeZone))
+                {
+                    try
+                    {
+                        osInfo.TimeZone = TimeZoneInfo.Local.DisplayName;
+                    }
+                    catch
+                    {
+                        osInfo.TimeZone = "Unknown";
+                    }
+                }
 
-                // Check for hypervisor
-                osInfo.IsHypervisorPresent = IsHypervisorPresent();
+                // Check for hypervisor - fallback if not set above
+                if (osInfo.IsHypervisorPresent == null)
+                {
+                    osInfo.IsHypervisorPresent = IsHypervisorPresent();
+                }
+
+                // Set locale fallback if not set above
+                if (string.IsNullOrWhiteSpace(osInfo.Locale))
+                {
+                    try
+                    {
+                        osInfo.Locale = CultureInfo.CurrentCulture.Name;
+                    }
+                    catch
+                    {
+                        osInfo.Locale = "Unknown";
+                    }
+                }
 
             }
             catch (Exception ex)

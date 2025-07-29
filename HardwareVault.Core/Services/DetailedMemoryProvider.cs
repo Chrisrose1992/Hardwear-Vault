@@ -104,10 +104,15 @@ namespace HardwareVault.Core.Services
                             module.Capacity = (uint)(capacity / (1024 * 1024)); // Convert bytes to MB
                         }
 
-                        // Memory Type
+                        // Enhanced Memory Type Detection
                         if (uint.TryParse(memory["MemoryType"]?.ToString(), out uint memoryType))
                         {
-                            module.MemoryType = _datasetService.GetMemoryTypeName(memoryType) ?? $"Type {memoryType}";
+                            module.MemoryType = GetEnhancedMemoryType(memoryType, module.DeviceLocator);
+                        }
+                        else
+                        {
+                            // Fallback: derive from device locator
+                            module.MemoryType = DeriveMemoryTypeFromLocator(module.DeviceLocator);
                         }
 
                         // Form Factor
@@ -144,7 +149,7 @@ namespace HardwareVault.Core.Services
                             module.MaxVoltage = maxVoltage;
                         }
 
-                        // Enhance manufacturer name using dataset
+                        // Enhanced manufacturer name using dataset
                         if (!string.IsNullOrWhiteSpace(module.Manufacturer))
                         {
                             var enhancedManufacturer = _datasetService.GetManufacturerName(module.Manufacturer);
@@ -162,6 +167,65 @@ namespace HardwareVault.Core.Services
             {
                 Console.WriteLine($"Error getting memory modules: {ex.Message}");
             }
+        }
+
+        private string GetEnhancedMemoryType(uint memoryTypeCode, string? deviceLocator)
+        {
+            // First try dataset lookup
+            var datasetType = _datasetService.GetMemoryTypeName(memoryTypeCode);
+            if (!string.IsNullOrWhiteSpace(datasetType) && datasetType != "Unknown")
+            {
+                return datasetType;
+            }
+
+            // Enhanced detection based on device locator and common patterns
+            if (!string.IsNullOrWhiteSpace(deviceLocator))
+            {
+                var locator = deviceLocator.ToUpperInvariant();
+                
+                if (locator.StartsWith("DDR5"))
+                    return "DDR5";
+                else if (locator.StartsWith("DDR4"))
+                    return "DDR4";
+                else if (locator.StartsWith("DDR3"))
+                    return "DDR3";
+                else if (locator.StartsWith("DDR2"))
+                    return "DDR2";
+                else if (locator.StartsWith("DDR"))
+                    return "DDR";
+            }
+
+            // Fallback based on memory type code
+            return memoryTypeCode switch
+            {
+                20 => "DDR",
+                21 => "DDR2", 
+                24 => "DDR3",
+                26 => "DDR4",
+                30 => "DDR5",
+                _ => $"Type {memoryTypeCode}"
+            };
+        }
+
+        private string DeriveMemoryTypeFromLocator(string? deviceLocator)
+        {
+            if (string.IsNullOrWhiteSpace(deviceLocator))
+                return "Unknown";
+
+            var locator = deviceLocator.ToUpperInvariant();
+            
+            if (locator.StartsWith("DDR5"))
+                return "DDR5";
+            else if (locator.StartsWith("DDR4"))
+                return "DDR4";
+            else if (locator.StartsWith("DDR3"))
+                return "DDR3";
+            else if (locator.StartsWith("DDR2"))
+                return "DDR2";
+            else if (locator.StartsWith("DDR"))
+                return "DDR";
+            else
+                return "Unknown";
         }
 
         private void CalculateMemoryStatistics(DetailedMemoryInfo memoryInfo)
@@ -236,21 +300,38 @@ namespace HardwareVault.Core.Services
                 {
                     foreach (ManagementObject chassis in searcher.Get())
                     {
-                        manufacturerInfo.ChassisManufacturer = chassis["Manufacturer"]?.ToString();
+                        var manufacturer = chassis["Manufacturer"]?.ToString();
+                        // Filter out placeholder values
+                        if (!string.IsNullOrWhiteSpace(manufacturer) && 
+                            !manufacturer.Equals("Default string", StringComparison.OrdinalIgnoreCase))
+                        {
+                            manufacturerInfo.ChassisManufacturer = manufacturer;
+                        }
+                        else
+                        {
+                            manufacturerInfo.ChassisManufacturer = "Unknown";
+                        }
                         break;
                     }
                 }
 
-                // Get memory manufacturers
+                // Enhanced memory manufacturers with proper mapping
                 var memoryManufacturers = new List<string>();
                 using (var searcher = new ManagementObjectSearcher("SELECT Manufacturer FROM Win32_PhysicalMemory"))
                 {
                     foreach (ManagementObject memory in searcher.Get())
                     {
                         var manufacturer = memory["Manufacturer"]?.ToString();
-                        if (!string.IsNullOrWhiteSpace(manufacturer) && !memoryManufacturers.Contains(manufacturer))
+                        if (!string.IsNullOrWhiteSpace(manufacturer))
                         {
-                            memoryManufacturers.Add(manufacturer);
+                            // Try to get enhanced name from dataset
+                            var enhancedName = _datasetService.GetManufacturerName(manufacturer);
+                            var finalName = enhancedName ?? manufacturer;
+                            
+                            if (!memoryManufacturers.Contains(finalName))
+                            {
+                                memoryManufacturers.Add(finalName);
+                            }
                         }
                     }
                 }

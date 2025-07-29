@@ -6,8 +6,8 @@
       "release_year": 2022,
       "pci_version": "PCIe 5.0 (CPU) / PCIe 4.0 (Chipset)",
       "slots": [
-        { "type": "x1", "speed_per_lane": "4 GB/s", "total_bandwidth": "4 GB/s" },
-        { "type": "x4", "speed_per_lane": "4 GB/s", "total_bandwidth": "16 GB/s" },
+        { "type": "x1", "speed_per_lane": "2 GB/s", "total_bandwidth": "2 GB/s" },
+        { "type": "x4", "speed_per_lane": "2 GB/s", "total_bandwidth": "8 GB/s" },
         { "type": "x8", "speed_per_lane": "4 GB/s", "total_bandwidth": "32 GB/s" },
         { "type": "x16", "speed_per_lane": "4 GB/s", "total_bandwidth": "64 GB/s" }
       ]
@@ -17,8 +17,8 @@
       "release_year": 2023,
       "pci_version": "PCIe 5.0 (CPU x16) / PCIe 4.0 (Chipset)",
       "slots": [
-        { "type": "x1", "speed_per_lane": "4 GB/s", "total_bandwidth": "4 GB/s" },
-        { "type": "x4", "speed_per_lane": "4 GB/s", "total_bandwidth": "16 GB/s" },
+        { "type": "x1", "speed_per_lane": "2 GB/s", "total_bandwidth": "2 GB/s" },
+        { "type": "x4", "speed_per_lane": "2 GB/s", "total_bandwidth": "8 GB/s" },
         { "type": "x16", "speed_per_lane": "4 GB/s", "total_bandwidth": "64 GB/s" }
       ]
     },
@@ -27,9 +27,9 @@
       "release_year": 2023,
       "pci_version": "PCIe 5.0 (CPU x16) / PCIe 4.0 (Chipset)",
       "slots": [
-        { "type": "x1", "speed_per_lane": "4 GB/s", "total_bandwidth": "4 GB/s" },
-        { "type": "x4", "speed_per_lane": "4 GB/s", "total_bandwidth": "16 GB/s" },
-        { "type": "x8", "speed_per_lane": "4 GB/s", "total_bandwidth": "32 GB/s" },
+        { "type": "x1", "speed_per_lane": "2 GB/s", "total_bandwidth": "2 GB/s" },
+        { "type": "x4", "speed_per_lane": "2 GB/s", "total_bandwidth": "8 GB/s" },
+        { "type": "x8", "speed_per_lane": "2 GB/s", "total_bandwidth": "16 GB/s" },
         { "type": "x16", "speed_per_lane": "4 GB/s", "total_bandwidth": "64 GB/s" }
       ]
     },
@@ -38,9 +38,9 @@
       "release_year": 2021,
       "pci_version": "PCIe 5.0 (CPU x16) / PCIe 4.0 (Chipset)",
       "slots": [
-        { "type": "x1", "speed_per_lane": "4 GB/s", "total_bandwidth": "4 GB/s" },
-        { "type": "x4", "speed_per_lane": "4 GB/s", "total_bandwidth": "16 GB/s" },
-        { "type": "x8", "speed_per_lane": "4 GB/s", "total_bandwidth": "32 GB/s" },
+        { "type": "x1", "speed_per_lane": "2 GB/s", "total_bandwidth": "2 GB/s" },
+        { "type": "x4", "speed_per_lane": "2 GB/s", "total_bandwidth": "8 GB/s" },
+        { "type": "x8", "speed_per_lane": "2 GB/s", "total_bandwidth": "16 GB/s" },
         { "type": "x16", "speed_per_lane": "4 GB/s", "total_bandwidth": "64 GB/s" }
       ]
     },
@@ -101,6 +101,25 @@
       "slots": [
         { "type": "x1", "speed_per_lane": "1 GB/s", "total_bandwidth": "1 GB/s" },
         { "type": "x4", "speed_per_lane": "1 GB/s", "total_bandwidth": "4 GB/s" },
+        { "type": "x16", "speed_per_lane": "1 GB/s", "total_bandwidth": "16 GB/s" }
+      ]
+    },
+    {
+      "model": "B365",
+      "release_year": 2019,
+      "pci_version": "PCIe 3.0",
+      "slots": [
+        { "type": "x1", "speed_per_lane": "1 GB/s", "total_bandwidth": "1 GB/s" },
+        { "type": "x4", "speed_per_lane": "1 GB/s", "total_bandwidth": "4 GB/s" },
+        { "type": "x16", "speed_per_lane": "1 GB/s", "total_bandwidth": "16 GB/s" }
+      ]
+    },
+    {
+      "model": "H310",
+      "release_year": 2018,
+      "pci_version": "PCIe 2.0",
+      "slots": [
+        { "type": "x1", "speed_per_lane": "0.5 GB/s", "total_bandwidth": "0.5 GB/s" },
         { "type": "x16", "speed_per_lane": "1 GB/s", "total_bandwidth": "16 GB/s" }
       ]
     }

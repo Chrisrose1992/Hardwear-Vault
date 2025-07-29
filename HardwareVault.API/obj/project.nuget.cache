@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "3leQ4raQZtk=",
+  "dgSpecHash": "u9dRnRiVO3s=",
   "success": true,
-  "projectFilePath": "E:\\Dev Server\\dotnet\\HardwareVault\\HardwareVault.API\\HardwareVault.API.csproj",
+  "projectFilePath": "E:\\Dev Server\\Git\\Hardwear-Vault\\HardwareVault.API\\HardwareVault.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\chris\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.7\\microsoft.aspnetcore.openapi.9.0.7.nupkg.sha512",
     "C:\\Users\\chris\\.nuget\\packages\\microsoft.extensions.apidescription.server\\9.0.0\\microsoft.extensions.apidescription.server.9.0.0.nupkg.sha512",

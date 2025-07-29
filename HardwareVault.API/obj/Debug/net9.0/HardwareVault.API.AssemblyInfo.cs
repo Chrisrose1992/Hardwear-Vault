@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HardwareVault.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5d79955461e8726a49e850d2dfd719afb13157e9")]
 [assembly: System.Reflection.AssemblyProductAttribute("HardwareVault.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HardwareVault.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

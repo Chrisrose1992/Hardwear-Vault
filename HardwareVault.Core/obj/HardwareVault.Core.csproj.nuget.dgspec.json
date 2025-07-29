@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Dev Server\\dotnet\\HardwareVault\\HardwareVault.Core\\HardwareVault.Core.csproj": {}
+    "E:\\Dev Server\\Git\\Hardwear-Vault\\HardwareVault.Core\\HardwareVault.Core.csproj": {}
   },
   "projects": {
-    "E:\\Dev Server\\dotnet\\HardwareVault\\HardwareVault.Core\\HardwareVault.Core.csproj": {
+    "E:\\Dev Server\\Git\\Hardwear-Vault\\HardwareVault.Core\\HardwareVault.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Dev Server\\dotnet\\HardwareVault\\HardwareVault.Core\\HardwareVault.Core.csproj",
+        "projectUniqueName": "E:\\Dev Server\\Git\\Hardwear-Vault\\HardwareVault.Core\\HardwareVault.Core.csproj",
         "projectName": "HardwareVault.Core",
-        "projectPath": "E:\\Dev Server\\dotnet\\HardwareVault\\HardwareVault.Core\\HardwareVault.Core.csproj",
+        "projectPath": "E:\\Dev Server\\Git\\Hardwear-Vault\\HardwareVault.Core\\HardwareVault.Core.csproj",
         "packagesPath": "C:\\Users\\chris\\.nuget\\packages\\",
-        "outputPath": "E:\\Dev Server\\dotnet\\HardwareVault\\HardwareVault.Core\\obj\\",
+        "outputPath": "E:\\Dev Server\\Git\\Hardwear-Vault\\HardwareVault.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

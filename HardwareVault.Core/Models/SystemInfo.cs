@@ -15,8 +15,89 @@ namespace HardwareVault.Core.Models
         public UuidInfo? Uuids { get; set; }
         public List<UsbDeviceInfo>? UsbDevices { get; set; }
         public ManufacturerInfo? ManufacturerInfo { get; set; }
+        
+        // New enhanced components
+        public CPUInfo? CPU { get; set; }
+        public List<GPUInfo>? GPUs { get; set; }
+        public List<StorageInfo>? Storage { get; set; }
+        public NetworkInfo? Network { get; set; }
+        public SecurityInfo? Security { get; set; }
+        public SystemPerformanceInfo? Performance { get; set; }
     }
 
+    // Enhanced HardwareInfo to include new components
+    public class HardwareInfo
+    {
+        public DetailedMemoryInfo? Memory { get; set; } 
+        public string? Manufacturer { get; set; }
+        public string? Model { get; set; }
+        public string? SystemType { get; set; }
+        public MemoryInfo? BasicMemory { get; set; }
+        public PowerInfo? Power { get; set; }
+        public TemperatureInfo? Temperature { get; set; }
+    }
+
+    // New models for enhanced system information
+    public class NetworkInfo
+    {
+        public List<NetworkAdapterInfo>? Adapters { get; set; }
+        public string? PrimaryAdapter { get; set; }
+        public string? PublicIP { get; set; }
+        public string? LocalIP { get; set; }
+        public string? MACAddress { get; set; }
+        public bool? InternetConnected { get; set; }
+    }
+
+    public class NetworkAdapterInfo
+    {
+        public string? Name { get; set; }
+        public string? Description { get; set; }
+        public string? MACAddress { get; set; }
+        public string? IPAddress { get; set; }
+        public string? SubnetMask { get; set; }
+        public string? DefaultGateway { get; set; }
+        public string? AdapterType { get; set; }
+        public bool? IsConnected { get; set; }
+        public ulong? Speed { get; set; }
+    }
+
+    public class SystemPerformanceInfo
+    {
+        public double? CPUUsagePercentage { get; set; }
+        public double? MemoryUsagePercentage { get; set; }
+        public double? DiskUsagePercentage { get; set; }
+        public uint? ProcessCount { get; set; }
+        public uint? ThreadCount { get; set; }
+        public TimeSpan? SystemUptime { get; set; }
+        public DateTime? LastBootTime { get; set; }
+    }
+
+    public class PowerInfo
+    {
+        public bool? IsOnBattery { get; set; }
+        public uint? BatteryPercentage { get; set; }
+        public string? PowerScheme { get; set; }
+        public bool? BatteryPresent { get; set; }
+        public string? BatteryStatus { get; set; }
+    }
+
+    public class TemperatureInfo
+    {
+        public double? CPUTemperature { get; set; }
+        public double? GPUTemperature { get; set; }
+        public double? SystemTemperature { get; set; }
+        public List<SensorInfo>? Sensors { get; set; }
+    }
+
+    public class SensorInfo
+    {
+        public string? Name { get; set; }
+        public string? Type { get; set; }
+        public double? Value { get; set; }
+        public string? Unit { get; set; }
+    }
+
+    // Existing models (keeping for compatibility)
     public class OSInfo
     {
         public string? Name { get; set; }
@@ -47,15 +128,6 @@ namespace HardwareVault.Core.Models
         public DateTime? InstallDate { get; set; }
         public DateTime? LastBootUpTime { get; set; }
         public TimeSpan? Uptime { get; set; }
-    }
-
-    public class HardwareInfo
-    {
-        public DetailedMemoryInfo? Memory { get; set; } 
-        public string? Manufacturer { get; set; }
-        public string? Model { get; set; }
-        public string? SystemType { get; set; }
-        public MemoryInfo? BasicMemory { get; set; }
     }
 
     public class PciSlotInfo
@@ -200,7 +272,7 @@ namespace HardwareVault.Core.Models
         public string? SystemIntegrator { get; set; }
     }
 
-    // New models for chipset dataset
+    // Chipset dataset models
     public class ChipsetDataset
     {
         public string? Manufacturer { get; set; }
@@ -220,5 +292,64 @@ namespace HardwareVault.Core.Models
         public string? Type { get; set; }
         public string? SpeedPerLane { get; set; }
         public string? TotalBandwidth { get; set; }
+    }
+
+    // New component models
+    public class CPUInfo
+    {
+        public string? Name { get; set; }
+        public string? Manufacturer { get; set; }
+        public uint? MaxClockSpeed { get; set; }
+        public uint? CurrentClockSpeed { get; set; }
+        public uint? NumberOfCores { get; set; }
+        public uint? NumberOfLogicalProcessors { get; set; }
+        public string? Architecture { get; set; }
+        public string? Family { get; set; }
+        public string? Model { get; set; }
+        public string? Stepping { get; set; }
+        public string? ProcessorId { get; set; }
+        public uint? L2CacheSize { get; set; }
+        public uint? L3CacheSize { get; set; }
+    }
+
+    public class GPUInfo
+    {
+        public string? Name { get; set; }
+        public string? Manufacturer { get; set; }
+        public string? Type { get; set; } // Integrated, Dedicated, Unknown
+        public uint? MemoryMB { get; set; }
+        public double? MemoryGB { get; set; }
+        public string? DriverVersion { get; set; }
+        public DateTime? DriverDate { get; set; }
+        public string? VideoProcessor { get; set; }
+        public string? DeviceId { get; set; }
+        public string? Status { get; set; }
+        public string? CurrentResolution { get; set; }
+        public uint? RefreshRate { get; set; }
+    }
+
+    public class StorageInfo
+    {
+        public string? Model { get; set; }
+        public string? Manufacturer { get; set; }
+        public string? SerialNumber { get; set; }
+        public string? InterfaceType { get; set; }
+        public string? MediaType { get; set; }
+        public string? FirmwareRevision { get; set; }
+        public string? DriveType { get; set; }
+        public ulong? SizeBytes { get; set; }
+        public double? SizeGB { get; set; }
+        public List<PartitionInfo>? Partitions { get; set; }
+    }
+
+    public class PartitionInfo
+    {
+        public string? DriveLetter { get; set; }
+        public string? Label { get; set; }
+        public string? FileSystem { get; set; }
+        public string? DriveType { get; set; }
+        public double? TotalSizeGB { get; set; }
+        public double? FreeSizeGB { get; set; }
+        public double? UsagePercentage { get; set; }
     }
 }
